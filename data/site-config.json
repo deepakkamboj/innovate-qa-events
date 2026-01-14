@@ -1,0 +1,30 @@
+{
+  "siteName": "Innovate QA",
+  "siteUrl": "https://innovateqaevents.com",
+  "description": "Join industry leaders and pioneers at Innovate QA Conference. Share insights, best practices, and cutting-edge tools for quality engineering excellence.",
+  "keywords": [
+    "QA",
+    "quality assurance",
+    "software testing",
+    "automation",
+    "conference",
+    "Seattle",
+    "SDET",
+    "test automation"
+  ],
+  "author": "Innovate QA Team",
+  "twitterHandle": "@innovateqa",
+  "googleAnalyticsId": "G-XXXXXXXXXX",
+  "googleSiteVerification": "your-google-site-verification-code",
+  "social": {
+    "twitter": "https://twitter.com/innovateqa",
+    "linkedin": "https://linkedin.com/company/innovateqa",
+    "youtube": "https://youtube.com/@innovateqa"
+  },
+  "currentEvent": {
+    "year": 2026,
+    "name": "Innovate QA 2026",
+    "date": "2026-06-05",
+    "location": "Seattle, WA"
+  }
+}

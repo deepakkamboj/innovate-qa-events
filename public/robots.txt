@@ -1,0 +1,10 @@
+# Robots.txt for Innovate QA Events
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://innovateqaevents.com/sitemap.xml
+
+# Disallow admin and API routes
+Disallow: /api/
+Disallow: /_next/
