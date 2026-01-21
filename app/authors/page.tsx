@@ -9,7 +9,7 @@ import { generateSEO } from "@/components/seo"
 export const metadata: Metadata = generateSEO({
   title: "Community Authors - Innovate QA",
   description: "At Innovate QA, we believe writing a book is one of the most impactful ways to share insights and lead by example. Explore our community of published authors who give back through the written word.",
-  path: "/authors",
+
 })
 
 export default function AuthorsPage() {
