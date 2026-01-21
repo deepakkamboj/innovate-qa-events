@@ -4,7 +4,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { format } from "date-fns";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import Image from "next/image";
 
 interface EventCardProps {
@@ -67,7 +67,7 @@ export function EventCard({ event }: EventCardProps) {
             </Button>
           )}
           <Button asChild variant="ghost" size="sm">
-            <Link to={`/events/${event.id}`}>
+            <Link href={`/events/${event.id}`}>
               Learn More <ArrowRight className="w-4 h-4 ml-1" />
             </Link>
           </Button>
