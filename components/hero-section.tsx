@@ -66,13 +66,26 @@ export function HeroSection() {
                   <defs>
                     <path
                       id="circlePath"
-                      d="M 100, 90 m -75, 0 a 75,75 0 1,1 150,0 a 75,75 0 1,1 -150,0"
+                      d="M 100, 95 m -75, 0 a 75,75 0 1,1 150,0 a 75,75 0 1,1 -150,0"
                     />
+                    <filter id="embossed">
+                      <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur"/>
+                      <feOffset in="blur" dx="3" dy="3" result="offsetBlur"/>
+                      <feFlood floodColor="rgba(0, 0, 0, 0.4)" result="offsetColor"/>
+                      <feComposite in="offsetColor" in2="offsetBlur" operator="in" result="shadow"/>
+                      <feGaussianBlur in="SourceAlpha" stdDeviation="1" result="blur2"/>
+                      <feOffset in="blur2" dx="-2" dy="-2" result="offsetBlur2"/>
+                      <feFlood floodColor="rgba(4, 0, 8, 0.6)" result="offsetColor2"/>
+                      <feComposite in="offsetColor2" in2="offsetBlur2" operator="in" result="highlight"/>
+                      <feMerge>
+                        <feMergeNode in="shadow"/>
+                        <feMergeNode in="highlight"/>
+                        <feMergeNode in="SourceGraphic"/>
+                      </feMerge>
+                    </filter>
                   </defs>
-                  <text className="fill-primary text-[20px] font-bold tracking-[0.3em]" style={{ letterSpacing: '0.3em' }}>
-                    <textPath href="#circlePath" startOffset="25%" textAnchor="middle">
-                      INNOVATE
-                    </textPath>
+                  <text className="text-[20px] font-bold tracking-[0.3em]" style={{ letterSpacing: '0.3em', fill: 'white', filter: 'url(#embossed)', textShadow: '0 0 10px rgba(87, 3, 165, 0.8)' }}>
+                    <textPath href="#circlePath" startOffset="25%" textAnchor="middle">INNOVATE</textPath>
                   </text>
                 </svg>
               </div>
@@ -80,7 +93,7 @@ export function HeroSection() {
                 src={`${BASE_PATH}/logo.svg`}
                 alt="Innovate QA Conference 2026"
                 fill
-                className="object-contain drop-shadow-2xl pt-5"
+                className="object-contain drop-shadow-2xl pt-15"
                 priority
               />
             </div>
