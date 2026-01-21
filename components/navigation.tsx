@@ -3,6 +3,7 @@
 import { useState } from "react"
 import Link from "next/link"
 import Image from "next/image"
+import { BASE_PATH } from "@/lib/constants"
 import { Menu, ChevronDown } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
@@ -32,8 +33,8 @@ export function Navigation() {
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container mx-auto flex h-20 items-center justify-between px-4">
         <Link href="/" className="flex items-center gap-2">
-          <Image 
-            src="/logo.png" 
+          <Image
+            src={`${BASE_PATH}/logo.png`}
             alt="Innovate QA Logo" 
             width={48} 
             height={48}

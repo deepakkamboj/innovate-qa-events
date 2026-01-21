@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge"
 import Link from "next/link"
 import Image from "next/image"
 import { format } from "date-fns"
+import { BASE_PATH } from "@/lib/constants"
 
 const upcomingEvents = [
   {
@@ -15,7 +16,7 @@ const upcomingEvents = [
     endDate: "2026-06-06",
     location: "Hilton Garden Inn, Issaquah, WA",
     description: "Join industry leaders and pioneers at Innovate QA Conference 2026. Share insights, best practices, and cutting-edge tools for quality engineering excellence.",
-    image: "/social.webp",
+    image: `${BASE_PATH}/social.webp`,
     status: "upcoming",
     ticketUrl: "https://www.eventbrite.com/e/innovate-qa-2026-software-quality-annual-conference-tickets-1979920880652?aff=oddtdtcreator",
     learnMoreUrl: "/events/2026"
@@ -27,7 +28,7 @@ const upcomingEvents = [
     endDate: null,
     location: "AWS Builder Loft, San Francisco, CA",
     description: "Experience the best AI test tools hands-on. A live, in-person event where teams use AI-powered testing tools against real products, real workflows, and real constraints.",
-    image: "/battle.webp",
+    image: `${BASE_PATH}/battle.webp`,
     status: "upcoming",
     ticketUrl: "https://luma.com/scw9b88h",
     learnMoreUrl: "/battle-of-ai-test-tools"

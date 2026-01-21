@@ -2,6 +2,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { Sparkles, Heart, Instagram, Linkedin, Youtube } from "lucide-react"
 import siteConfig from "@/data/site-config.json"
+import { BASE_PATH } from "@/lib/constants"
 
 // Custom X/Twitter icon since lucide doesn't have the new X logo
 const XIcon = ({ className }: { className?: string }) => (
@@ -49,7 +50,7 @@ export function Footer() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-8">
           <div className="lg:col-span-1">
             <Link href="/" className="flex items-center gap-2 mb-4">
-              <Image src="/logo.png" alt="Innovate QA" width={36} height={36} className="h-9 w-9 rounded-lg object-contain" />
+              <Image src={`${BASE_PATH}/logo.png`} alt="Innovate QA" width={36} height={36} className="h-9 w-9 rounded-lg object-contain" />
               <span className="text-xl font-bold text-foreground">Innovate QA</span>
             </Link>
             <p className="text-sm text-muted-foreground">

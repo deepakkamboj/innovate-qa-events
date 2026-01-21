@@ -3,6 +3,7 @@ import { CountdownTimer } from "@/components/countdown-timer"
 import { CalendarDays, MapPin, Users } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
+import { BASE_PATH } from "@/lib/constants"
 
 export function HeroSection() {
   // Event date: June 5, 2026
@@ -76,7 +77,7 @@ export function HeroSection() {
                 </svg>
               </div>
               <Image
-                src="/logo.png"
+                src={`${BASE_PATH}/logo.png`}
                 alt="Innovate QA Conference 2026"
                 fill
                 className="object-contain drop-shadow-2xl pt-5"

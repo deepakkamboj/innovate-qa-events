@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button"
 import { MapPin, Car, Plane, Building, Map } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
+import { BASE_PATH } from "@/lib/constants"
 
 export function VenueSection() {
   return (
@@ -19,7 +20,7 @@ export function VenueSection() {
         <div className="grid lg:grid-cols-2 gap-8 items-center">
           <div className="aspect-video rounded-xl overflow-hidden bg-muted relative">
             <Image
-              src="/westin-bellevue.webp"
+              src={`${BASE_PATH}/westin-bellevue.webp`}
               alt="The Westin Bellevue"
               fill
               className="object-cover"

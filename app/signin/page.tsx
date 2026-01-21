@@ -1,7 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";import Image from "next/image"
+import Link from "next/link";
+import Image from "next/image";
+import { BASE_PATH } from "@/lib/constants";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -40,7 +42,7 @@ export default function SignInPage() {
         {/* Logo/Brand */}
         <div className="text-center mb-8">
           <Link href="/" className="inline-flex items-center gap-2">
-            <Image src="/logo.png" alt="Innovate QA" width={48} height={48} className="h-12 w-12" />
+            <Image src={`${BASE_PATH}/logo.png`} alt="Innovate QA" width={48} height={48} className="h-12 w-12" />
             <span className="text-2xl font-bold text-white">Innovate QA</span>
           </Link>
           <p className="text-purple-200 mt-2">Welcome back! Sign in to continue.</p>
