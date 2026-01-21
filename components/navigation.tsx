@@ -34,7 +34,7 @@ export function Navigation() {
       <div className="container mx-auto flex h-20 items-center justify-between px-4">
         <Link href="/" className="flex items-center gap-2">
           <Image
-            src={`${BASE_PATH}/logo.png`}
+            src={`${BASE_PATH}/logo.svg`}
             alt="Innovate QA Logo" 
             width={48} 
             height={48}

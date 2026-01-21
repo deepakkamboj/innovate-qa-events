@@ -77,7 +77,7 @@ export function HeroSection() {
                 </svg>
               </div>
               <Image
-                src={`${BASE_PATH}/logo.png`}
+                src={`${BASE_PATH}/logo.svg`}
                 alt="Innovate QA Conference 2026"
                 fill
                 className="object-contain drop-shadow-2xl pt-5"

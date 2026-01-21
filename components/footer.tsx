@@ -50,7 +50,7 @@ export function Footer() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-8">
           <div className="lg:col-span-1">
             <Link href="/" className="flex items-center gap-2 mb-4">
-              <Image src={`${BASE_PATH}/logo.png`} alt="Innovate QA" width={36} height={36} className="h-9 w-9 rounded-lg object-contain" />
+              <Image src={`${BASE_PATH}/logo.svg`} alt="Innovate QA" width={36} height={36} className="h-9 w-9 rounded-lg object-contain" />
               <span className="text-xl font-bold text-foreground">Innovate QA</span>
             </Link>
             <p className="text-sm text-muted-foreground">

@@ -42,7 +42,7 @@ export default function SignInPage() {
         {/* Logo/Brand */}
         <div className="text-center mb-8">
           <Link href="/" className="inline-flex items-center gap-2">
-            <Image src={`${BASE_PATH}/logo.png`} alt="Innovate QA" width={48} height={48} className="h-12 w-12" />
+            <Image src={`${BASE_PATH}/logo.svg`} alt="Innovate QA" width={48} height={48} className="h-12 w-12" />
             <span className="text-2xl font-bold text-white">Innovate QA</span>
           </Link>
           <p className="text-purple-200 mt-2">Welcome back! Sign in to continue.</p>
