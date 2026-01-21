@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
+import Image from "next/image"
 
 const silverSponsors = [
   { name: "PlusQA", logo: "/plusqa-logo-tech-company.jpg" },
@@ -43,9 +44,11 @@ export function SponsorsSection() {
                   key={sponsor.name}
                   className="bg-card rounded-lg p-6 border border-border/50 hover:border-primary/30 transition-colors"
                 >
-                  <img
+                  <Image
                     src={sponsor.logo || "/placeholder.svg"}
                     alt={sponsor.name}
+                    width={120}
+                    height={48}
                     className="h-12 w-auto object-contain"
                   />
                 </div>
@@ -64,9 +67,11 @@ export function SponsorsSection() {
                   key={sponsor.name}
                   className="bg-card rounded-lg p-4 border border-border/50 hover:border-primary/30 transition-colors"
                 >
-                  <img
+                  <Image
                     src={sponsor.logo || "/placeholder.svg"}
                     alt={sponsor.name}
+                    width={80}
+                    height={32}
                     className="h-8 w-auto object-contain"
                   />
                 </div>
@@ -85,9 +90,11 @@ export function SponsorsSection() {
                   key={partner.name}
                   className="bg-card rounded-lg p-4 border border-border/50 hover:border-primary/30 transition-colors opacity-80 hover:opacity-100 transition-opacity"
                 >
-                  <img
+                  <Image
                     src={partner.logo || "/placeholder.svg"}
                     alt={partner.name}
+                    width={60}
+                    height={24}
                     className="h-6 w-auto object-contain"
                   />
                 </div>

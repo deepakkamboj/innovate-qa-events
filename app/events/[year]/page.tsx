@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation"
 import Link from "next/link"
+import Image from "next/image"
 import { ArrowLeft, Calendar, MapPin, Clock, Play } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
@@ -221,11 +222,12 @@ export default async function EventPage({ params }: { params: Promise<{ year: st
             <h2 className="text-3xl font-bold text-foreground mb-8">Photo Gallery</h2>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
               {event.gallery.map((photo, i) => (
-                <div key={i} className="aspect-[4/3] rounded-lg overflow-hidden bg-muted">
-                  <img
+                <div key={i} className="aspect-[4/3] rounded-lg overflow-hidden bg-muted relative">
+                  <Image
                     src={photo || "/placeholder.svg"}
                     alt={`Event photo ${i + 1}`}
-                    className="w-full h-full object-cover"
+                    fill
+                    className="object-cover"
                   />
                 </div>
               ))}
@@ -247,10 +249,12 @@ export default async function EventPage({ params }: { params: Promise<{ year: st
                   <a key={sponsor.name} href={sponsor.url} target="_blank" rel="noopener noreferrer">
                     <Card className="h-full hover:shadow-lg transition-shadow border-primary/20 bg-gradient-to-br from-yellow-50 to-amber-50 dark:from-yellow-950/20 dark:to-amber-950/20">
                       <CardContent className="p-6 flex flex-col items-center text-center">
-                        <div className="h-20 w-full flex items-center justify-center mb-4">
-                          <img
+                        <div className="h-20 w-full flex items-center justify-center mb-4 relative">
+                          <Image
                             src={sponsor.logo || "/placeholder.svg"}
                             alt={sponsor.name}
+                            width={160}
+                            height={80}
                             className="max-h-20 max-w-full object-contain"
                           />
                         </div>
@@ -274,10 +278,12 @@ export default async function EventPage({ params }: { params: Promise<{ year: st
                   <a key={sponsor.name} href={sponsor.url} target="_blank" rel="noopener noreferrer">
                     <Card className="h-full hover:shadow-lg transition-shadow border-border/50">
                       <CardContent className="p-6 flex flex-col items-center text-center">
-                        <div className="h-16 w-full flex items-center justify-center mb-4">
-                          <img
+                        <div className="h-16 w-full flex items-center justify-center mb-4 relative">
+                          <Image
                             src={sponsor.logo || "/placeholder.svg"}
                             alt={sponsor.name}
+                            width={128}
+                            height={64}
                             className="max-h-16 max-w-full object-contain"
                           />
                         </div>
@@ -301,10 +307,12 @@ export default async function EventPage({ params }: { params: Promise<{ year: st
                   <a key={sponsor.name} href={sponsor.url} target="_blank" rel="noopener noreferrer">
                     <Card className="h-full hover:shadow-lg transition-shadow border-border/50">
                       <CardContent className="p-5 flex flex-col items-center text-center">
-                        <div className="h-14 w-full flex items-center justify-center mb-3">
-                          <img
+                        <div className="h-14 w-full flex items-center justify-center mb-3 relative">
+                          <Image
                             src={sponsor.logo || "/placeholder.svg"}
                             alt={sponsor.name}
+                            width={112}
+                            height={56}
                             className="max-h-14 max-w-full object-contain"
                           />
                         </div>
@@ -328,10 +336,12 @@ export default async function EventPage({ params }: { params: Promise<{ year: st
                   <a key={sponsor.name} href={sponsor.url} target="_blank" rel="noopener noreferrer">
                     <Card className="h-full hover:shadow-lg transition-shadow border-border/50">
                       <CardContent className="p-5 flex flex-col items-center text-center">
-                        <div className="h-12 w-full flex items-center justify-center mb-3">
-                          <img
+                        <div className="h-12 w-full flex items-center justify-center mb-3 relative">
+                          <Image
                             src={sponsor.logo || "/placeholder.svg"}
                             alt={sponsor.name}
+                            width={96}
+                            height={48}
                             className="max-h-12 max-w-full object-contain"
                           />
                         </div>

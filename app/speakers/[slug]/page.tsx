@@ -56,10 +56,11 @@ export default async function SpeakerPage({ params }: SpeakerPageProps) {
             <div className="lg:col-span-1">
               <Card className="overflow-hidden">
                 <div className="aspect-square relative bg-muted">
-                  <img
+                  <Image
                     src={speaker.image}
                     alt={speaker.name}
-                    className="w-full h-full object-cover object-top"
+                    fill
+                    className="object-cover object-top"
                   />
                 </div>
                 <CardContent className="p-6">

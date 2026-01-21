@@ -4,6 +4,7 @@ import { ArrowRight, Calendar, MapPin } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import Link from "next/link"
+import Image from "next/image"
 import { format } from "date-fns"
 
 const upcomingEvents = [
@@ -61,10 +62,11 @@ export function UpcomingEvents() {
             return (
               <Card key={event.id} className="group overflow-hidden border-0 shadow-lg hover:shadow-xl transition-all duration-500 py-0">
                 <div className="relative h-48 overflow-hidden">
-                  <img
+                  <Image
                     src={event.image}
                     alt={event.title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-110"
                   />
                   <Badge className="absolute top-4 right-4 bg-purple-500 text-primary-foreground">
                     Upcoming

@@ -2,6 +2,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { MapPin, Car, Plane, Building, Map } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
 
 export function VenueSection() {
   return (
@@ -16,11 +17,12 @@ export function VenueSection() {
         </div>
 
         <div className="grid lg:grid-cols-2 gap-8 items-center">
-          <div className="aspect-video rounded-xl overflow-hidden bg-muted">
-            <img
+          <div className="aspect-video rounded-xl overflow-hidden bg-muted relative">
+            <Image
               src="/westin-bellevue.webp"
               alt="The Westin Bellevue"
-              className="w-full h-full object-cover"
+              fill
+              className="object-cover"
             />
           </div>
 

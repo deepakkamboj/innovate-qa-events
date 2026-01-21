@@ -3,6 +3,7 @@
 import { Card, CardContent } from "@/components/ui/card"
 import { Linkedin } from "lucide-react"
 import { useRouter } from "next/navigation"
+import Image from "next/image"
 
 interface Speaker {
   id: string
@@ -29,11 +30,12 @@ export function SpeakerCard({ speaker }: SpeakerCardProps) {
       onClick={handleCardClick}
       className="bg-card border-border/50 overflow-hidden group hover:border-primary/30 transition-colors flex flex-col h-full cursor-pointer py-0 pb-6"
     >
-      <div className="aspect-[3/4] overflow-hidden bg-muted -m-px">
-        <img
+      <div className="aspect-[3/4] overflow-hidden bg-muted -m-px relative">
+        <Image
           src={speaker.image || "/placeholder.svg"}
           alt={speaker.name}
-          className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300"
+          fill
+          className="object-cover object-top group-hover:scale-105 transition-transform duration-300"
         />
       </div>
       <CardContent className="pt-4 flex-1 flex flex-col">

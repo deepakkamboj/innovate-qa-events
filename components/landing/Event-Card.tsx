@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { format } from "date-fns";
 import { Link } from "react-router-dom";
+import Image from "next/image";
 
 interface EventCardProps {
   event: Event;
@@ -23,10 +24,11 @@ export function EventCard({ event }: EventCardProps) {
   return (
     <Card className="group overflow-hidden border-0 shadow-card hover:shadow-glow transition-all duration-500">
       <div className="relative h-48 overflow-hidden">
-        <img
+        <Image
           src={event.image}
           alt={event.title}
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+          fill
+          className="object-cover transition-transform duration-500 group-hover:scale-110"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 to-transparent" />
         <Badge

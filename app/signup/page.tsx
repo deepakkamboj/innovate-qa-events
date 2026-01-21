@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
+import Link from "next/link";import Image from "next/image"
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -55,7 +55,7 @@ export default function SignUpPage() {
         {/* Logo/Brand */}
         <div className="text-center mb-8">
           <Link href="/" className="inline-flex items-center gap-2">
-            <img src="/logo.png" alt="Innovate QA" className="h-12 w-12" />
+            <Image src="/logo.png" alt="Innovate QA" width={48} height={48} className="h-12 w-12" />
             <span className="text-2xl font-bold text-white">Innovate QA</span>
           </Link>
           <p className="text-purple-200 mt-2">Join our community of quality professionals.</p>
