@@ -7,6 +7,7 @@ import { Footer } from "@/components/footer"
 import { GoogleAnalytics } from "@/components/google-analytics"
 import { OrganizationLD } from "@/components/json-ld"
 import { generateSEO } from "@/components/seo"
+import siteConfig from "@/data/site-config.json"
 import "./globals.css"
 
 const _inter = Inter({ subsets: ["latin"] })
@@ -14,25 +15,15 @@ const _geistMono = Geist_Mono({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
   ...generateSEO(),
-  manifest: "/manifest.json",
-  icons: {
-    icon: [
-      { url: "/favicon.ico", sizes: "any" },
-      { url: "/icon.svg", type: "image/svg+xml" },
-      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
-      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
-    ],
-    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
-    other: [{ rel: "mask-icon", url: "/safari-pinned-tab.svg", color: "#7c3aed" }],
+  verification: {
+    google: siteConfig.googleSiteVerification,
   },
-    generator: 'v0.app'
+  icons: siteConfig.icons,
+  manifest: siteConfig.manifest || "/manifest.json",
 }
 
 export const viewport: Viewport = {
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
-    { media: "(prefers-color-scheme: dark)", color: "#0a0a0a" },
-  ],
+  themeColor: siteConfig.themeColor || "#4b0082",
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,

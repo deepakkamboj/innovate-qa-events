@@ -7,9 +7,9 @@ interface OrganizationLDProps {
 }
 
 export function OrganizationLD({
-  name = siteConfig.siteName,
+  name = siteConfig.title,
   url = siteConfig.siteUrl,
-  logo = `${siteConfig.siteUrl}/logo.png`,
+  logo = `${siteConfig.siteUrl}${siteConfig.siteLogo}`,
 }: OrganizationLDProps = {}) {
   const jsonLd = {
     "@context": "https://schema.org",
@@ -17,7 +17,13 @@ export function OrganizationLD({
     name,
     url,
     logo,
-    sameAs: [siteConfig.social.twitter, siteConfig.social.linkedin, siteConfig.social.youtube],
+    sameAs: [
+      siteConfig.socials?.x?.url,
+      siteConfig.socials?.linkedin?.url,
+      siteConfig.socials?.youtube?.url,
+      siteConfig.socials?.instagram?.url,
+      siteConfig.socials?.tiktok?.url,
+    ].filter(Boolean),
   }
 
   return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />

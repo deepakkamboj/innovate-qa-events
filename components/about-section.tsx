@@ -28,9 +28,10 @@ export function AboutSection() {
   return (
     <section id="about" className="py-20 md:py-28 bg-muted/30">
       <div className="container mx-auto px-4">
-        <div className="max-w-3xl mx-auto text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Who Is It For?</h2>
-          <p className="text-lg text-muted-foreground text-pretty">
+        <div className="text-center mb-8">
+          <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">Who Is It For?</h2>
+          <div className="w-20 h-1 bg-primary mx-auto rounded-full mb-6" />
+          <p className="text-lg text-muted-foreground text-pretty max-w-4xl mx-auto">
             We specialize in organizing events tailored specifically for test automation experts and leaders in quality.
             Connect with peers, gain practical knowledge, and drive excellence in software testing.
           </p>

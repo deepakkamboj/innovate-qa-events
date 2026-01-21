@@ -8,6 +8,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import type { Metadata } from "next"
 import { generateSEO } from "@/components/seo"
 import { EventLD, BreadcrumbLD } from "@/components/json-ld"
+import { SpeakerCard } from "@/components/Speaker-Card"
 
 import event2025 from "@/data/events/2025.json"
 import event2024 from "@/data/events/2024.json"
@@ -205,23 +206,9 @@ export default async function EventPage({ params }: { params: Promise<{ year: st
       <section className="py-16 bg-muted/30">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-foreground mb-8">Speakers</h2>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {event.speakers.map((speaker) => (
-              <Card key={speaker.id} className="bg-card border-border/50 overflow-hidden">
-                <div className="aspect-square overflow-hidden bg-muted">
-                  <img
-                    src={speaker.image || "/placeholder.svg"}
-                    alt={speaker.name}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <CardContent className="pt-4">
-                  <h3 className="text-lg font-semibold text-foreground">{speaker.name}</h3>
-                  <p className="text-sm text-primary font-medium">{speaker.role}</p>
-                  <p className="text-sm text-muted-foreground mb-2">{speaker.company}</p>
-                  <p className="text-xs text-muted-foreground line-clamp-2">{speaker.bio}</p>
-                </CardContent>
-              </Card>
+              <SpeakerCard key={speaker.id} speaker={speaker} />
             ))}
           </div>
         </div>
@@ -254,15 +241,25 @@ export default async function EventPage({ params }: { params: Promise<{ year: st
 
           {event.sponsors.gold && event.sponsors.gold.length > 0 && (
             <div className="mb-12">
-              <h3 className="text-lg font-semibold text-primary mb-4">Gold Sponsors</h3>
-              <div className="flex flex-wrap gap-8 items-center">
+              <h3 className="text-lg font-semibold text-primary mb-6">Gold Sponsors</h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 {event.sponsors.gold.map((sponsor) => (
-                  <a key={sponsor.name} href={sponsor.url} target="_blank" rel="noopener noreferrer" className="block">
-                    <img
-                      src={sponsor.logo || "/placeholder.svg"}
-                      alt={sponsor.name}
-                      className="h-16 w-auto object-contain"
-                    />
+                  <a key={sponsor.name} href={sponsor.url} target="_blank" rel="noopener noreferrer">
+                    <Card className="h-full hover:shadow-lg transition-shadow border-primary/20 bg-gradient-to-br from-yellow-50 to-amber-50 dark:from-yellow-950/20 dark:to-amber-950/20">
+                      <CardContent className="p-6 flex flex-col items-center text-center">
+                        <div className="h-20 w-full flex items-center justify-center mb-4">
+                          <img
+                            src={sponsor.logo || "/placeholder.svg"}
+                            alt={sponsor.name}
+                            className="max-h-20 max-w-full object-contain"
+                          />
+                        </div>
+                        <h4 className="font-semibold text-foreground mb-2">{sponsor.name}</h4>
+                        {"tagline" in sponsor && sponsor.tagline && (
+                          <p className="text-sm text-muted-foreground">{sponsor.tagline}</p>
+                        )}
+                      </CardContent>
+                    </Card>
                   </a>
                 ))}
               </div>
@@ -271,15 +268,25 @@ export default async function EventPage({ params }: { params: Promise<{ year: st
 
           {event.sponsors.silver && event.sponsors.silver.length > 0 && (
             <div className="mb-12">
-              <h3 className="text-lg font-semibold text-muted-foreground mb-4">Silver Sponsors</h3>
-              <div className="flex flex-wrap gap-6 items-center">
+              <h3 className="text-lg font-semibold text-muted-foreground mb-6">Silver Sponsors</h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 {event.sponsors.silver.map((sponsor) => (
-                  <a key={sponsor.name} href={sponsor.url} target="_blank" rel="noopener noreferrer" className="block">
-                    <img
-                      src={sponsor.logo || "/placeholder.svg"}
-                      alt={sponsor.name}
-                      className="h-12 w-auto object-contain"
-                    />
+                  <a key={sponsor.name} href={sponsor.url} target="_blank" rel="noopener noreferrer">
+                    <Card className="h-full hover:shadow-lg transition-shadow border-border/50">
+                      <CardContent className="p-6 flex flex-col items-center text-center">
+                        <div className="h-16 w-full flex items-center justify-center mb-4">
+                          <img
+                            src={sponsor.logo || "/placeholder.svg"}
+                            alt={sponsor.name}
+                            className="max-h-16 max-w-full object-contain"
+                          />
+                        </div>
+                        <h4 className="font-semibold text-foreground mb-2">{sponsor.name}</h4>
+                        {"tagline" in sponsor && sponsor.tagline && (
+                          <p className="text-sm text-muted-foreground">{sponsor.tagline}</p>
+                        )}
+                      </CardContent>
+                    </Card>
                   </a>
                 ))}
               </div>
@@ -288,15 +295,49 @@ export default async function EventPage({ params }: { params: Promise<{ year: st
 
           {event.sponsors.bronze && event.sponsors.bronze.length > 0 && (
             <div className="mb-12">
-              <h3 className="text-lg font-semibold text-muted-foreground mb-4">Bronze Sponsors</h3>
-              <div className="flex flex-wrap gap-6 items-center">
+              <h3 className="text-lg font-semibold text-muted-foreground mb-6">Bronze Sponsors</h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 {event.sponsors.bronze.map((sponsor) => (
-                  <a key={sponsor.name} href={sponsor.url} target="_blank" rel="noopener noreferrer" className="block">
-                    <img
-                      src={sponsor.logo || "/placeholder.svg"}
-                      alt={sponsor.name}
-                      className="h-10 w-auto object-contain"
-                    />
+                  <a key={sponsor.name} href={sponsor.url} target="_blank" rel="noopener noreferrer">
+                    <Card className="h-full hover:shadow-lg transition-shadow border-border/50">
+                      <CardContent className="p-5 flex flex-col items-center text-center">
+                        <div className="h-14 w-full flex items-center justify-center mb-3">
+                          <img
+                            src={sponsor.logo || "/placeholder.svg"}
+                            alt={sponsor.name}
+                            className="max-h-14 max-w-full object-contain"
+                          />
+                        </div>
+                        <h4 className="font-medium text-foreground mb-1 text-sm">{sponsor.name}</h4>
+                        {"tagline" in sponsor && sponsor.tagline && (
+                          <p className="text-xs text-muted-foreground">{sponsor.tagline}</p>
+                        )}
+                      </CardContent>
+                    </Card>
+                  </a>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {event.sponsors.partners && event.sponsors.partners.length > 0 && (
+            <div className="mb-12">
+              <h3 className="text-lg font-semibold text-muted-foreground mb-6">Partners</h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                {event.sponsors.partners.map((sponsor) => (
+                  <a key={sponsor.name} href={sponsor.url} target="_blank" rel="noopener noreferrer">
+                    <Card className="h-full hover:shadow-lg transition-shadow border-border/50">
+                      <CardContent className="p-5 flex flex-col items-center text-center">
+                        <div className="h-12 w-full flex items-center justify-center mb-3">
+                          <img
+                            src={sponsor.logo || "/placeholder.svg"}
+                            alt={sponsor.name}
+                            className="max-h-12 max-w-full object-contain"
+                          />
+                        </div>
+                        <h4 className="font-medium text-foreground text-sm">{sponsor.name}</h4>
+                      </CardContent>
+                    </Card>
                   </a>
                 ))}
               </div>

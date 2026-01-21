@@ -1,24 +1,25 @@
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { MapPin, Car, Plane, Building } from "lucide-react"
+import { MapPin, Car, Plane, Building, Map } from "lucide-react"
 import Link from "next/link"
 
 export function VenueSection() {
   return (
-    <section id="venue" className="py-20 md:py-28">
+    <section id="venue" className="py-20 md:py-28 bg-muted/50">
       <div className="container mx-auto px-4">
         <div className="max-w-3xl mx-auto text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Venue</h2>
+          <div className="w-20 h-1 bg-primary mx-auto rounded-full mb-6"></div>
           <p className="text-lg text-muted-foreground">
-            Join us at the beautiful Hilton Garden Inn in Issaquah, Washington.
+            Join us at The Westin Bellevue in downtown Bellevue, Washington.
           </p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-8 items-center">
           <div className="aspect-video rounded-xl overflow-hidden bg-muted">
             <img
-              src="/hilton-garden-inn-hotel-exterior-modern.jpg"
-              alt="Hilton Garden Inn Issaquah"
+              src="/westin-bellevue.webp"
+              alt="The Westin Bellevue"
               className="w-full h-full object-cover"
             />
           </div>
@@ -31,11 +32,11 @@ export function VenueSection() {
                     <Building className="h-5 w-5 text-primary" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-foreground text-lg">Hilton Garden Inn</h3>
+                    <h3 className="font-semibold text-foreground text-lg">The Westin Bellevue</h3>
                     <p className="text-muted-foreground">
-                      1800 Northwest Gilman Boulevard
+                      600 Bellevue Way NE
                       <br />
-                      Issaquah, Washington 98027
+                      Bellevue, Washington 98004
                     </p>
                   </div>
                 </div>
@@ -43,31 +44,28 @@ export function VenueSection() {
                 <div className="space-y-3 text-sm text-muted-foreground">
                   <div className="flex items-center gap-2">
                     <Car className="h-4 w-4 text-primary" />
-                    <span>Off I-90, 15 miles from central Seattle</span>
+                    <span>Downtown Bellevue, accessible from I-405 and I-90</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <Plane className="h-4 w-4 text-primary" />
-                    <span>20 miles from SeaTac Airport</span>
+                    <span>15 minutes from SeaTac Airport</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <MapPin className="h-4 w-4 text-primary" />
-                    <span>Free parking on premises</span>
+                    <span>Parking available on-site</span>
                   </div>
                 </div>
               </CardContent>
             </Card>
 
-            <div className="flex flex-col sm:flex-row gap-3">
+            <div className="flex flex-col sm:flex-row gap-3 sm:justify-end">
               <Button asChild>
-                <Link href="https://maps.google.com" target="_blank">
+                <Link href="https://maps.google.com/?q=600+Bellevue+Way+NE+Bellevue+WA+98004" target="_blank">
+                  <Map className="mr-2 h-4 w-4" />
                   Get Directions
                 </Link>
               </Button>
-              <Button variant="outline" asChild>
-                <Link href="#" target="_blank">
-                  Book Hotel Room
-                </Link>
-              </Button>
+           
             </div>
           </div>
         </div>

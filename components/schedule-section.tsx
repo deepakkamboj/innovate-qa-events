@@ -75,6 +75,7 @@ export function ScheduleSection() {
       <div className="container mx-auto px-4">
         <div className="max-w-3xl mx-auto text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Event Schedule</h2>
+          <div className="w-20 h-1 bg-primary mx-auto rounded-full mb-6"></div>
           <p className="text-lg text-muted-foreground">
             A full day of learning, networking, and inspiration. June 5, 2025.
           </p>

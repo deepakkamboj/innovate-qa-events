@@ -1,7 +1,7 @@
 import type React from "react"
 import Image from "next/image"
 import Link from "next/link"
-import { Lightbulb, Users, Award, Heart, ArrowRight } from "lucide-react"
+import { Lightbulb, Users, Award, Heart, ArrowRight, Linkedin } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { generateSEO } from "@/components/seo"
@@ -104,6 +104,45 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* Conference Highlights Gallery */}
+      <section className="py-20" style={{ backgroundColor: "rgb(75, 0, 130)" }}>
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 text-center">Experience Innovate QA</h2>
+          <p className="text-purple-200 text-center mb-12 max-w-2xl mx-auto">
+            Our events are designed to inspire, surprise, and deeply engage—creating a space where quality leaders can connect, learn, and grow together.
+          </p>
+          <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            <div className="aspect-[4/3] relative overflow-hidden rounded-xl group">
+              <Image
+                src="https://img1.wsimg.com/isteam/ip/bb935004-06a8-408b-b5e5-10ba769a2415/InnovateQA_Seattle_240822_039.jpg"
+                alt="Innovate QA Conference Session"
+                fill
+                className="object-cover transition-transform duration-700 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            </div>
+            <div className="aspect-[4/3] relative overflow-hidden rounded-xl group">
+              <Image
+                src="https://img1.wsimg.com/isteam/ip/bb935004-06a8-408b-b5e5-10ba769a2415/InnovateQA_Seattle_240822_035.jpg"
+                alt="Innovate QA Networking"
+                fill
+                className="object-cover transition-transform duration-700 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            </div>
+            <div className="aspect-[4/3] relative overflow-hidden rounded-xl group">
+              <Image
+                src="https://img1.wsimg.com/isteam/ip/bb935004-06a8-408b-b5e5-10ba769a2415/InnovateQA_Seattle_240822_068.jpg"
+                alt="Innovate QA Community"
+                fill
+                className="object-cover transition-transform duration-700 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Our Values */}
       <section className="py-20 bg-secondary/30">
         <div className="container mx-auto px-4">
@@ -152,6 +191,18 @@ export default function AboutPage() {
                     {member.role}
                   </p>
                   <p className="text-muted-foreground text-sm">{member.bio}</p>
+                  {member.linkedin && (
+                    <div className="mt-4">
+                      <a
+                        href={member.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center justify-center h-8 w-8 rounded-full bg-primary/10 hover:bg-primary/20 transition-colors"
+                      >
+                        <Linkedin className="h-4 w-4 text-primary" />
+                      </a>
+                    </div>
+                  )}
                 </CardContent>
               </Card>
             ))}

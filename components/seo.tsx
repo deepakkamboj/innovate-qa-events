@@ -17,56 +17,54 @@ export function generateSEO({
   title,
   description = siteConfig.description,
   canonical,
-  ogImage = "/og-image.png",
+  ogImage,
   ogType = "website",
   noIndex = false,
-  keywords = siteConfig.keywords,
+  keywords,
   author = siteConfig.author,
   publishedTime,
   modifiedTime,
 }: SEOProps = {}) {
-  const fullTitle = title
-    ? `${title} | ${siteConfig.siteName}`
-    : `${siteConfig.siteName} | Quality Engineering Conference`
-  const fullCanonical = canonical ? `${siteConfig.siteUrl}${canonical}` : siteConfig.siteUrl
-  const fullOgImage = ogImage.startsWith("http") ? ogImage : `${siteConfig.siteUrl}${ogImage}`
+  const pageTitle = title || siteConfig.title
+  const pageDescription = description || siteConfig.description
+  const ogImageUrl = ogImage || siteConfig.openGraph?.image || siteConfig.socialBanner
+  const fullCanonical = canonical || siteConfig.openGraph?.url || siteConfig.siteUrl
 
   return {
-    title: fullTitle,
-    description,
-    keywords: keywords.join(", "),
+    title: pageTitle,
+    description: pageDescription,
     authors: [{ name: author }],
     creator: author,
-    publisher: siteConfig.siteName,
+    publisher: siteConfig.title,
     metadataBase: new URL(siteConfig.siteUrl),
     alternates: {
       canonical: fullCanonical,
     },
     openGraph: {
-      title: fullTitle,
-      description,
-      url: fullCanonical,
-      siteName: siteConfig.siteName,
+      title: siteConfig.openGraph?.title || pageTitle,
+      description: siteConfig.openGraph?.description || pageDescription,
+      url: siteConfig.openGraph?.url || fullCanonical,
+      siteName: siteConfig.openGraph?.siteName || siteConfig.title,
       images: [
         {
-          url: fullOgImage,
+          url: ogImageUrl,
           width: 1200,
           height: 630,
-          alt: fullTitle,
+          alt: siteConfig.twitterMeta?.imageAlt || pageTitle,
         },
       ],
-      locale: "en_US",
-      type: ogType,
+      locale: siteConfig.openGraph?.locale || siteConfig.locale || "en_US",
+      type: siteConfig.openGraph?.type || ogType,
       ...(publishedTime && { publishedTime }),
       ...(modifiedTime && { modifiedTime }),
     },
     twitter: {
-      card: "summary_large_image",
-      title: fullTitle,
-      description,
-      images: [fullOgImage],
+      card: siteConfig.twitterMeta?.card || "summary_large_image",
+      title: siteConfig.twitterMeta?.title || pageTitle,
+      description: siteConfig.twitterMeta?.description || pageDescription,
+      images: [siteConfig.twitterMeta?.image || ogImageUrl],
       creator: siteConfig.twitterHandle,
-      site: siteConfig.twitterHandle,
+      site: siteConfig.twitterMeta?.site || siteConfig.twitterSite || siteConfig.twitterHandle,
     },
     robots: {
       index: !noIndex,
@@ -75,12 +73,9 @@ export function generateSEO({
         index: !noIndex,
         follow: !noIndex,
         "max-video-preview": -1,
-        "max-image-preview": "large",
+        "max-image-preview": "large" as const,
         "max-snippet": -1,
       },
-    },
-    verification: {
-      google: siteConfig.googleSiteVerification,
     },
   }
 }

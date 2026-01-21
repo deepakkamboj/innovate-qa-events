@@ -1,5 +1,7 @@
 import { HeroSection } from "@/components/hero-section"
+import { FeaturesSection } from "@/components/features-section"
 import { AboutSection } from "@/components/about-section"
+import { UpcomingEvents } from "@/components/upcoming-events"
 import { SpeakersSection } from "@/components/speakers-section"
 import { ScheduleSection } from "@/components/schedule-section"
 import { VenueSection } from "@/components/venue-section"
@@ -14,7 +16,7 @@ export default function Home() {
       <EventLD
         name="Innovate QA 2026"
         description="Join industry leaders and pioneers at Innovate QA Conference 2026 in Seattle. Share insights, best practices, and cutting-edge tools for quality engineering excellence."
-        startDate="2026-06-05T08:00:00-07:00"
+        startDate="2026-06-04T08:00:00-07:00"
         endDate="2026-06-05T18:00:00-07:00"
         location={{
           name: "Hilton Garden Inn Seattle Downtown",
@@ -33,12 +35,14 @@ export default function Home() {
         ]}
       />
       <HeroSection />
+      <FeaturesSection />
       <AboutSection />
+      <UpcomingEvents />
       <SpeakersSection />
-      <ScheduleSection />
+      {/* <ScheduleSection /> */}
       <VenueSection />
       <PricingSection />
-      <SponsorsSection />
+      {/* <SponsorsSection /> */}
       <NewsletterSection />
     </>
   )
