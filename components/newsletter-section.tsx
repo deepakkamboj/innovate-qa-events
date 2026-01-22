@@ -24,7 +24,7 @@ export function NewsletterSection() {
           <div className="h-14 w-14 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-6">
             <Mail className="h-7 w-7 text-primary" />
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Stay Updated</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Stay Updated (test)</h2>
           <div className="w-20 h-1 bg-primary mx-auto rounded-full mb-6"></div>
           <p className="text-lg text-muted-foreground mb-8">
             Sign up for updates on tickets, speakers, and event news!
